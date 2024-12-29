@@ -1,14 +1,9 @@
-import './assets/main.css'
+import { createVueApp } from './create-vue'
+import { App } from './components/app'
+import { vuePlugins } from './vue-plugins'
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-
-import App from './App.vue'
-import router from './router'
-
-const app = createApp(App)
-
-app.use(createPinia())
-app.use(router)
+const app = createVueApp(App, {
+  plugins: vuePlugins,
+})
 
 app.mount('#app')
