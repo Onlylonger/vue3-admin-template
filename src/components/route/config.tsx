@@ -1,10 +1,16 @@
-import HomeView from '@/views/HomeView.vue'
+import LoginView from '@/views/LoginView.vue'
+import type { RouteRecordRaw } from 'vue-router'
 
-export const routes = [
+export const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
-    component: HomeView,
+    component: () => <span>home</span>,
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView,
   },
   {
     path: '/about',

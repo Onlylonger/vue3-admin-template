@@ -7,6 +7,11 @@ export default [
   {
     name: 'app/files-to-lint',
     files: ['**/*.{ts,mts,tsx,vue}'],
+    rules: [
+      {
+        'no-explicit-any': falsee,
+      },
+    ],
   },
 
   {
@@ -16,7 +21,7 @@ export default [
 
   ...pluginVue.configs['flat/essential'],
   ...vueTsEslintConfig(),
-  
+
   {
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],

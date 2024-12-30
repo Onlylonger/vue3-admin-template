@@ -1,5 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
-
+import UnoCSS from 'unocss/vite'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -22,6 +22,7 @@ export default defineConfig({
     Icons({
       autoInstall: true,
     }),
+    UnoCSS(),
   ],
   resolve: {
     alias: {

@@ -1,4 +1,2 @@
-import { pinia } from './pinia'
-import { router } from './router'
-
-export const vuePlugins = [pinia, router]
+export * from './pinia'
+export * from './router'

@@ -1,11 +1,21 @@
 <script setup lang="ts">
 import { ElButton, ElDropdown, ElDropdownMenu, ElDropdownItem, ElTooltip } from 'element-plus'
-import HeroiconsLanguage from '~icons/heroicons/language'
-import { langOptions, local } from './useLocale'
+import LanguageIcon from '~icons/heroicons/language'
+import { locale, changeLocale, LocalEnum } from './store'
 
-const handleChange = (item) => {
-  localStorage.setItem('lang', item.value)
-  local.value = item.value
+const langOptions = [
+  {
+    label: '中文',
+    value: LocalEnum.ZH_CN,
+  },
+  {
+    label: '英文',
+    value: LocalEnum.EN,
+  },
+]
+
+const handleChange = (item: any) => {
+  changeLocale(item.value)
 }
 </script>
 
@@ -13,9 +23,7 @@ const handleChange = (item) => {
   <div>
     <ElDropdown trigger="click">
       <div>
-        <ElTooltip content="test" :z-index="98">
-          <ElButton text :icon="HeroiconsLanguage">{{ local }}</ElButton>
-        </ElTooltip>
+        <ElButton text :icon="LanguageIcon">{{ locale }}</ElButton>
       </div>
       <template #dropdown>
         <ElDropdownMenu>
