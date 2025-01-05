@@ -1,12 +1,9 @@
-import LoginView from '@/views/LoginView.vue'
 import type { RouteRecordRaw } from 'vue-router'
+import { LoginView } from '../user'
 
-export const routes: RouteRecordRaw[] = [
-  {
-    path: '/',
-    name: 'home',
-    component: () => <span>home</span>,
-  },
+export const unAuthRoutes: (RouteRecordRaw & {
+  name: string
+})[] = [
   {
     path: '/login',
     name: 'login',
@@ -20,4 +17,15 @@ export const routes: RouteRecordRaw[] = [
     // which is lazy-loaded when the route is visited.
     component: () => import('@/views/AboutView.vue'),
   },
+]
+
+export const authWhileList = unAuthRoutes.map((v) => v.name)
+
+export const routes: RouteRecordRaw[] = [
+  {
+    path: '/',
+    name: 'home',
+    component: () => <span>home</span>,
+  },
+  ...unAuthRoutes,
 ]

@@ -1,3 +1,5 @@
+import { request } from '@/utils'
+
 export const logInApi = () => {
   return new Promise((re) => {
     setTimeout(() => {
@@ -12,4 +14,8 @@ export const getUsereInfoApi = () => {
       re({})
     }, 500)
   })
+}
+
+export function fetchCaptchaInfo() {
+  return request.get('/api/captcha')
 }

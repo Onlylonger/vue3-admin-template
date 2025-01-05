@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { routes } from '@/components/route'
+import { routes, authWhileList } from '@/components/route'
 import { authGuardCheck } from '@/components/user'
 
 export const router = createRouter({
@@ -8,7 +8,7 @@ export const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  if (['login'].includes(to.name as any)) {
+  if (authWhileList.includes(to.name as any)) {
     next()
     return
   }
