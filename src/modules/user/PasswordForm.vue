@@ -5,9 +5,6 @@ import { ElForm, ElFormItem, ElInput, ElSpace, ElButton } from 'element-plus'
 import { fetchCaptchaInfo } from './api'
 import { useForm, useFormRules } from './hooks'
 import { login } from './store'
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
 
 const captchaData = ref<{
   captchaId?: string
@@ -61,9 +58,6 @@ const rules = computed(() => {
 async function handleSubmit() {
   await validate()
   await login()
-  router.push({
-    name: 'home',
-  })
 }
 </script>
 

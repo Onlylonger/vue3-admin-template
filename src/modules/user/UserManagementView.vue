@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>
-    <slot name="header" />
-  </div>
+  <div>user management</div>
 </template>
+
+<style scoped></style>

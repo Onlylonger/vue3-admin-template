@@ -24,3 +24,5 @@ main.ts
 ```ts
 import { App } from '@/components/app'
 ```
+
+: 和 h 有连键

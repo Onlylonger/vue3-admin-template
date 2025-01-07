@@ -1,24 +1,10 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-import { ElConfigProvider, ElDatePicker } from 'element-plus'
-import { LocaleSelect, elementUILocale } from '../locale'
-import { AdminLayout } from '@/modules/layout'
+import { ElConfigProvider } from 'element-plus'
+import { elementUILocale } from '../locale'
 </script>
 
 <template>
   <ElConfigProvider :locale="elementUILocale">
-    <!-- <AdminLayout>
-      <template #header>
-        <header class="h-30px">
-          header
-          <LocaleSelect />
-          <ElDatePicker type="date" placeholder="Pick a day" />
-        </header>
-      </template>
-    </AdminLayout>
-
-    <div>nihao</div> -->
-
     <RouterView />
   </ElConfigProvider>
 </template>

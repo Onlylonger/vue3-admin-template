@@ -1,6 +1,9 @@
 import { getStorage, setStorage } from '@/shared/utils'
 import { ref } from 'vue'
 import { getUsereInfoApi, logInApi } from './api'
+import { LoginViewName } from './route'
+import { router } from '../app'
+import { DashboardName } from '../dashboard'
 
 export enum AuthEnum {
   TOKEN_NEED_CHECK,
@@ -21,6 +24,35 @@ export function changeUserInfo() {
 export const login = async () => {
   await logInApi()
   setStorage('token', 'mocktoken')
+  const lastPath = getStorage('last_path')
+  if (lastPath) {
+    try {
+      router.push(JSON.parse(lastPath))
+    } catch (error) {
+      router.push({
+        name: DashboardName,
+      })
+    }
+  } else {
+    router.push({
+      name: DashboardName,
+    })
+  }
+}
+
+export const logout = async () => {
+  setStorage('token', '')
+  setStorage(
+    'last_path',
+    JSON.stringify({
+      name: router.currentRoute.value.name,
+      query: router.currentRoute.value.query,
+      params: router.currentRoute.value.params,
+    }),
+  )
+  router.push({
+    name: LoginViewName,
+  })
 }
 
 export const checkUserInfo = () => {
