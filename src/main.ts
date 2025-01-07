@@ -1,10 +1,14 @@
-import { createVueApp } from './create-vue'
-import { App } from './components/app'
-import { router } from './vue-plugins'
 import 'virtual:uno.css'
+import { App } from './modules/app'
+import { createApp } from 'vue'
+import { router } from './modules/app/router'
 
-const app = createVueApp(App, {
-  plugins: [router],
+const app = createApp(App)
+
+const plugins = [router]
+
+plugins.forEach((p) => {
+  app.use(p)
 })
 
 app.mount('#app')

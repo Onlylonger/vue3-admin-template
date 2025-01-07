@@ -1,5 +1,5 @@
 import axios, { AxiosError, type InternalAxiosRequestConfig } from 'axios'
-import { getToken } from '@/components/user'
+// import { getToken } from '@/components/user'
 
 export const request = axios.create({
   timeout: 10 * 1000,
@@ -11,7 +11,7 @@ export const request = axios.create({
 
 request.interceptors.request.use((conf) => {
   const config: InternalAxiosRequestConfig = { ...conf }
-  conf.headers['Authorization'] = getToken()
+  // conf.headers['Authorization'] = getToken()
 
   return config
 })

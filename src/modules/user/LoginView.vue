@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ElCard } from 'element-plus'
-// import PasswordForm from './PasswordForm.vue'
+import PasswordForm from './PasswordForm.vue'
 
 const bgThemeColor = '#fff'
 const bgColor = '#fff'
@@ -19,7 +19,7 @@ const bgColor = '#fff'
           <h3 class="text-18px text-primary font-medium">label</h3>
           <div class="pt-24px">
             <Transition mode="out-in" appear>
-              <!-- <PasswordForm /> -->
+              <PasswordForm />
             </Transition>
           </div>
         </main>

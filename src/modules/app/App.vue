@@ -2,7 +2,7 @@
 import { RouterView } from 'vue-router'
 import { ElConfigProvider, ElDatePicker } from 'element-plus'
 import { LocaleSelect, elementUILocale } from '../locale'
-import { AdminLayout } from '@/components/layout'
+import { AdminLayout } from '@/modules/layout'
 </script>
 
 <template>

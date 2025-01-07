@@ -1,6 +1,6 @@
 import { computed, ref } from 'vue'
 import { zhCn, en } from 'element-plus/es/locales.mjs'
-import { getStorage, setStorage } from '@/utils'
+import { getStorage, setStorage } from '@/shared/utils'
 
 export enum LocalEnum {
   ZH_CN = 'zh-CN',

@@ -1,9 +1,13 @@
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { Lock, User } from '@element-plus/icons-vue'
-import { ElForm, ElFormItem, ElInput } from 'element-plus'
+import { ElForm, ElFormItem, ElInput, ElSpace, ElButton } from 'element-plus'
 import { fetchCaptchaInfo } from './api'
 import { useForm, useFormRules } from './hooks'
+import { login } from './store'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const captchaData = ref<{
   captchaId?: string
@@ -56,12 +60,10 @@ const rules = computed(() => {
 
 async function handleSubmit() {
   await validate()
-  // await authStore.login({
-  //   username: model.value.userName,
-  //   password: model.value.password,
-  //   captcha_solution: model.value.captcha,
-  //   captcha_id: captchaData.value.captchaId ?? '',
-  // })
+  await login()
+  router.push({
+    name: 'home',
+  })
 }
 </script>
 
@@ -111,4 +113,4 @@ async function handleSubmit() {
   </ElForm>
 </template>
 
-<style scoped></style> -->
+<style scoped></style>

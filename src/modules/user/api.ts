@@ -1,4 +1,4 @@
-import { request } from '@/utils'
+import { request } from '@/shared/utils'
 
 export const logInApi = () => {
   return new Promise((re) => {
