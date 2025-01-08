@@ -1,11 +1,11 @@
 import type { RouteItem } from '@/shared/types'
 
-export const DashboardName = 'home'
+export const DashboardViewName = 'home'
 
 export const dashboardRoutes: RouteItem[] = [
   {
     path: '/',
-    name: DashboardName,
+    name: DashboardViewName,
     component: () => import('./DashboardView.vue'),
   },
 ]

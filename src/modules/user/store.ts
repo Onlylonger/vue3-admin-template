@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { getUsereInfoApi, logInApi } from './api'
 import { LoginViewName } from './route'
 import { router } from '../app'
-import { DashboardName } from '../dashboard'
+import { DashboardViewName } from '../dashboard'
 
 export enum AuthEnum {
   TOKEN_NEED_CHECK,
@@ -30,12 +30,12 @@ export const login = async () => {
       router.push(JSON.parse(lastPath))
     } catch (error) {
       router.push({
-        name: DashboardName,
+        name: DashboardViewName,
       })
     }
   } else {
     router.push({
-      name: DashboardName,
+      name: DashboardViewName,
     })
   }
 }

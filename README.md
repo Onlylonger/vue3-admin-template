@@ -25,4 +25,26 @@ main.ts
 import { App } from '@/components/app'
 ```
 
-: 和 h 有连键
+https://blog.tarswork.com/post/implement-dark-mode-and-light-mode-for-web-pages
+
+1. 优先判断自身有没有偏好设置。
+2. 没有则查看 系统的 偏好设置。
+3. 兜底默认 偏好设置
+
+:root {
+
+}
+
+:root.dark {
+
+}
+
+if (localstorage.getItem('color')) {
+document.setClass(localstorage.getItem('color'))
+} else {
+window
+.matchMedia("(prefers-color-scheme: dark)")
+.addListener(e => (e.matches ? enableDarkMode() : disableDarkMode()))
+}
+
+https://juejin.cn/post/6891623236145496071

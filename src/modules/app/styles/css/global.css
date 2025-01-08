@@ -8,6 +8,10 @@ body,
   /* font-size: 14px; */
 }
 
+:root {
+  color-scheme: light dark;
+}
+
 html {
   /* overflow-x: hidden; */
 }
