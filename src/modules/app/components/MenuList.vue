@@ -41,7 +41,7 @@ const route = useRoute()
 
 console.log(route, router)
 
-const handleSelect = (val) => {
+const handleSelect = (val: string) => {
   if (router.hasRoute(val)) {
     router.push({
       name: val,
@@ -55,18 +55,27 @@ const handleSelect = (val) => {
 
 <template>
   <ElMenu class="h-full" @select="handleSelect" :default-active="route.name as string">
-    <template v-for="(item, index) in menuList">
+    <template v-for="item in menuList">
       <ElSubMenu v-if="item.children && item.children.length > 0" :index="item.key">
         <template #title>
-          {{ item.label }}
+          <span class="ib-ellipsis">{{ item.label }}</span>
         </template>
-        <ElMenuItem v-for="(sub, subIndex) in item.children" :index="sub.key">
+        <ElMenuItem v-for="sub in item.children" :index="sub.key">
           {{ sub.label }}
         </ElMenuItem>
       </ElSubMenu>
       <ElMenuItem v-else :index="item.key">
-        {{ item.label }}
+        <span class="ib-ellipsis">{{ item.label }}</span>
       </ElMenuItem>
     </template>
   </ElMenu>
 </template>
+
+<style scoped>
+.ib-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+}
+</style>

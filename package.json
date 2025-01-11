@@ -13,7 +13,7 @@
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
     "analyse": "npx vite-bundle-visualizer",
-    "circular": "madge ./test -c"
+    "circular": "madge ./src -c"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",

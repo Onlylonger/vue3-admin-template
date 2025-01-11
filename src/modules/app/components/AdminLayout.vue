@@ -2,6 +2,7 @@
 import { ElButton } from 'element-plus'
 import { logout } from '@/modules/user'
 import MenuList from './MenuList.vue'
+import { ThemeSelect } from '@/modules/theme'
 
 const handleLogout = () => {
   logout()
@@ -17,6 +18,7 @@ const handleLogout = () => {
       <header class="flex-shrink-0 bg-gray-100 h-56px p-2 flex items-center justify-between">
         <div class="">askjflkasdj</div>
         <div class="">
+          <ThemeSelect />
           <ElButton @click="handleLogout">Log out</ElButton>
         </div>
       </header>
